@@ -1,0 +1,6 @@
+{
+  "name": "Portfolio Admin Dashboard Plan",
+  "description": "Architecture plan and setup commands for a React + Vite admin dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
