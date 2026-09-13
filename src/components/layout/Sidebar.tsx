@@ -12,7 +12,6 @@ import { useSettingsQuery } from '@/src/features/settings/hooks/useSettings';
 
 const navigation = [
   { name: 'Dashboard', href: '/', icon: LayoutDashboard },
-  { name: 'Profile', href: '/profile', icon: User },
   { name: 'Settings', href: '/settings', icon: Settings },
   { name: 'Services', href: '/services', icon: Briefcase },
   { name: 'Skills', href: '/skills', icon: Code },
@@ -21,7 +20,6 @@ const navigation = [
   { name: 'Projects', href: '/projects', icon: FolderKanban },
   { name: 'Posts', href: '/posts', icon: FileText },
   { name: 'Testimonials', href: '/testimonials', icon: MessageSquare },
-  { name: 'Social Links', href: '/socials', icon: Globe },
   { name: 'FAQs', href: '/faqs', icon: HelpCircle },
   { name: 'Messages', href: '/messages', icon: Mail },
   { name: 'Media', href: '/media', icon: ImageIcon },
