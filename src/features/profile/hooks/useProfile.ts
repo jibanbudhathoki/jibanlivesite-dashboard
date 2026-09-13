@@ -18,8 +18,21 @@ export const useUpdateProfileMutation = () => {
 
   return useMutation({
     mutationFn: (payload: UpdateProfilePayload) => profileService.updateProfile(payload),
-    onSuccess: () => {
-      // Invalidate and refetch
+    onMutate: async (payload) => {
+      await queryClient.cancelQueries({ queryKey: profileKeys.all });
+      const previousProfile = queryClient.getQueryData(profileKeys.all);
+      queryClient.setQueryData(profileKeys.all, (old: any) => ({
+        ...old,
+        ...payload,
+      }));
+      return { previousProfile };
+    },
+    onError: (_err, _newVal, context) => {
+      if (context?.previousProfile) {
+        queryClient.setQueryData(profileKeys.all, context.previousProfile);
+      }
+    },
+    onSettled: () => {
       queryClient.invalidateQueries({ queryKey: profileKeys.all });
     },
   });

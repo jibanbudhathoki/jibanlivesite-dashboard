@@ -2,7 +2,8 @@ import axios from "axios";
 
 // Create a configured Axios instance
 export const apiClient = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL,
+  baseURL:
+    (import.meta.env?.VITE_API_URL as string) || "https://hostapi.jibanbudhathoki.com.np/api",
   headers: {
     "Content-Type": "application/json",
   },

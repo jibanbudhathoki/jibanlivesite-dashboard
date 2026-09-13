@@ -27,8 +27,11 @@ export function ServicesList() {
   };
 
   const handleDelete = async (id: string) => {
-    if (confirm("Are you sure you want to delete this service?")) {
+    try {
       await deleteMutation.mutateAsync(id);
+    } catch (error) {
+      console.error("Failed to delete service:", error);
+      alert("Failed to delete service");
     }
   };
 
